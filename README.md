@@ -1,6 +1,8 @@
 # Berdiev.Storage.Xml
 playground for XML file content handling (... 2019)
 
+⚠️ **netstandard2.0 THIS PROJECT IS DEPRECATED**
+
 ### Create a repository
 
 The repository is the entry point for storing and loading records. The repository is represented by a XML file.
