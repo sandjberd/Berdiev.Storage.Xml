@@ -1,0 +1,274 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Berdiev.Storage.Xml</name>
+    </assembly>
+    <members>
+        <member name="T:Berdiev.Storage.Xml.IAttribute">
+            <summary>
+                This represents the xml attribute that is used in xml storage file.
+            </summary>
+        </member>
+        <member name="P:Berdiev.Storage.Xml.IAttribute.AttributeName">
+            <summary>
+                Represents the attribute name.
+            </summary>
+        </member>
+        <member name="P:Berdiev.Storage.Xml.IAttribute.AttributeValue">
+            <summary>
+                Represents the attribute value.
+            </summary>
+        </member>
+        <member name="T:Berdiev.Storage.Xml.Internal.RecordExtensions">
+            <summary>
+                This represents extension methods for records.
+            </summary>
+        </member>
+        <member name="M:Berdiev.Storage.Xml.Internal.RecordExtensions.HasChildren(Berdiev.Storage.Xml.IRecord)">
+            <summary>
+                Indicates if the given record has child records.
+            </summary>
+        </member>
+        <member name="M:Berdiev.Storage.Xml.Internal.RecordExtensions.WhereRecord(Berdiev.Storage.Xml.IRecord,System.Predicate{Berdiev.Storage.Xml.IRecord})">
+            <summary>
+                Filters a record based on the given predicate.
+            </summary>
+        </member>
+        <member name="M:Berdiev.Storage.Xml.Internal.RecordExtensions.WhereRecord(System.Collections.Generic.IEnumerable{Berdiev.Storage.Xml.IRecord},System.Predicate{Berdiev.Storage.Xml.IRecord})">
+            <summary>
+                Filters a sequence based on the given predicate.
+            </summary>
+        </member>
+        <member name="T:Berdiev.Storage.Xml.IRecord">
+            <summary>
+                A record represents a single storage item of a repository.
+                This can contain inner records that enables storage compositions.
+            </summary>
+        </member>
+        <member name="P:Berdiev.Storage.Xml.IRecord.Name">
+            <summary>
+                Name of the record. This name is represented as tag name in the xml file.
+            </summary>
+        </member>
+        <member name="P:Berdiev.Storage.Xml.IRecord.Value">
+            <summary>
+                This represents the value of the record.
+                The value can be null.
+            </summary>
+        </member>
+        <member name="P:Berdiev.Storage.Xml.IRecord.Attributes">
+            <summary>
+                Attributes of the record. This is used to precise or describe a record.
+            </summary>
+        </member>
+        <member name="P:Berdiev.Storage.Xml.IRecord.InnerRecords">
+            <summary>
+                Child records of the current record.
+            </summary>
+        </member>
+        <member name="T:Berdiev.Storage.Xml.IRecordSerializable">
+            <summary>
+                This is a marker interface that is used to indicate that the class can be serialized and stored into xml storage.
+            </summary>
+        </member>
+        <member name="T:Berdiev.Storage.Xml.IRecord`1">
+            <inheritdoc />
+        </member>
+        <member name="P:Berdiev.Storage.Xml.IRecord`1.TypedValue">
+            <summary>
+                Complex typed value that can be serialized and stored in the xml repository.
+            </summary>
+        </member>
+        <member name="T:Berdiev.Storage.Xml.IRepository">
+            <summary>
+                This represents the xml repository that provides access to xml storage.
+                The repository is capable of CRUD operations of the xml storage. 
+            </summary>
+        </member>
+        <member name="P:Berdiev.Storage.Xml.IRepository.Specification">
+            <summary>
+                The specification of the current repository.
+            </summary>
+        </member>
+        <member name="M:Berdiev.Storage.Xml.IRepository.GetRecordsAsync">
+            <summary>
+                Loads records from current repository.
+            </summary>
+            <returns>A collection of loaded records.</returns>
+        </member>
+        <member name="M:Berdiev.Storage.Xml.IRepository.GetRecordsByNameAsync(System.String)">
+            <summary>
+                Loads records from current repository corresponding to the given name.
+            </summary>
+            <param name="recordName">Record name to search for in the repository</param>
+            <returns>A collection of loaded records. The collection can be empty if no records were found.</returns>
+        </member>
+        <member name="M:Berdiev.Storage.Xml.IRepository.LoadDataAsync``1(System.Collections.Generic.IReadOnlyList{Berdiev.Storage.Xml.IRecord},System.String)">
+            <summary>
+                Loads serialized data from given record.
+            </summary>
+            <param name="records">Records that contain the serialized data.</param>
+            <param name="name">Record name that is used as index of serialized data.</param>
+            <typeparam name="T">Serialized data type</typeparam>
+            <returns>Deserialized data.</returns>
+        </member>
+        <member name="M:Berdiev.Storage.Xml.IRepository.AppendRecordAsync(Berdiev.Storage.Xml.IRecord)">
+            <summary>
+                Appends record into the xml storage. 
+            </summary>
+            <param name="record">Record that should be appended.</param>
+            <returns>The future of the operation.</returns>
+        </member>
+        <member name="M:Berdiev.Storage.Xml.IRepository.UpdateRecordAsync(Berdiev.Storage.Xml.IRecord,Berdiev.Storage.Xml.IRecord)">
+            <summary>
+                This operation replaces a specific record with another one.
+            </summary>
+            <param name="oldRecord">Record to replace.</param>
+            <param name="newRecord">Record to insert.</param>
+            <returns>The future of the operation.</returns>
+        </member>
+        <member name="M:Berdiev.Storage.Xml.IRepository.DeleteAsync(Berdiev.Storage.Xml.IRecord)">
+            <summary>
+                Deletes the specific record.
+            </summary>
+            <param name="record">Record to delete.</param>
+            <returns>The future of the operation.</returns>
+        </member>
+        <member name="T:Berdiev.Storage.Xml.Record">
+            <inheritdoc />
+        </member>
+        <member name="P:Berdiev.Storage.Xml.Record.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:Berdiev.Storage.Xml.Record.Attributes">
+            <inheritdoc />
+        </member>
+        <member name="P:Berdiev.Storage.Xml.Record.InnerRecords">
+            <inheritdoc />
+        </member>
+        <member name="P:Berdiev.Storage.Xml.Record.Value">
+            <inheritdoc />
+        </member>
+        <member name="M:Berdiev.Storage.Xml.Record.Create(System.String,System.String,Berdiev.Storage.Xml.IAttribute[])">
+            <summary>
+                Creates a simple record with value and optional attributes.
+            </summary>
+            <param name="name">Name of the record.</param>
+            <param name="value">Value of the record.</param>
+            <param name="attributes">Optional attributes.</param>
+            <returns>New record.</returns>
+        </member>
+        <member name="M:Berdiev.Storage.Xml.Record.CreateWithChild(System.String,Berdiev.Storage.Xml.IRecord,Berdiev.Storage.Xml.IAttribute[])">
+            <summary>
+                Creates a record with one inner record as child.
+            </summary>
+            <param name="name">Name of the record.</param>
+            <param name="record">Inner record that represents the child record.</param>
+            <param name="attributes">Optional attributes.</param>
+            <returns>New record.</returns>
+        </member>
+        <member name="M:Berdiev.Storage.Xml.Record.CreateWithChildren(System.String,Berdiev.Storage.Xml.IRecord[],Berdiev.Storage.Xml.IAttribute[])">
+            <summary>
+                Creates a record with many inner records as children.
+            </summary>
+            <param name="name">Name of the record.</param>
+            <param name="records">Inner records that represents the children record.</param>
+            <param name="attributes">Optional attributes.</param>
+            <returns>New record.</returns>
+        </member>
+        <member name="T:Berdiev.Storage.Xml.Record`1">
+            <inheritdoc />
+        </member>
+        <member name="P:Berdiev.Storage.Xml.Record`1.TypedValue">
+            <inheritdoc />
+        </member>
+        <member name="P:Berdiev.Storage.Xml.Record`1.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Berdiev.Storage.Xml.Record`1.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:Berdiev.Storage.Xml.Record`1.Attributes">
+            <inheritdoc />
+        </member>
+        <member name="P:Berdiev.Storage.Xml.Record`1.InnerRecords">
+            <inheritdoc />
+        </member>
+        <member name="P:Berdiev.Storage.Xml.Record`1.Value">
+            <summary>
+                Since the value is a serialized object, this value can't be used and is therefore null.
+            </summary>
+        </member>
+        <member name="M:Berdiev.Storage.Xml.Record`1.Create``1(System.String,``0,Berdiev.Storage.Xml.IAttribute[])">
+            <summary>
+                Creates a record with serialized object.
+            </summary>
+            <param name="name">Name of the record.</param>
+            <param name="value">Value of the record that will be serialized before it gets persisted.</param>
+            <param name="attributes">Optional attributes.</param>
+            <typeparam name="T">Type of the value that gets serialized.</typeparam>
+            <returns>New record.</returns>
+        </member>
+        <member name="T:Berdiev.Storage.Xml.RepositoryFactory">
+            <summary>
+                This represents a factory that creates a storage repository instance with capability of CRUD operations.
+            </summary>
+        </member>
+        <member name="M:Berdiev.Storage.Xml.RepositoryFactory.CreateRepositoryAsync(Berdiev.Storage.Xml.RepositorySpecification)">
+            <summary>
+                Creates a repository instance by using the given specification.
+            </summary>
+            <param name="specification">This is used to create a repository.</param>
+            <returns>New repository instance.</returns>
+        </member>
+        <member name="T:Berdiev.Storage.Xml.RepositorySpecification">
+            <summary>
+                This represents a blueprint to create a repository instance. It contains information how and where the repository must be created and managed. 
+            </summary>
+        </member>
+        <member name="M:Berdiev.Storage.Xml.RepositorySpecification.#ctor(System.String,System.String,System.Version)">
+            <summary>
+                Instantiates new specification.
+            </summary>
+            <param name="name">Name of the repository.</param>
+            <param name="storagePath">Path of the storage</param>
+            <param name="version">Version of the repository</param>
+        </member>
+        <member name="M:Berdiev.Storage.Xml.RepositorySpecification.#ctor(System.String,System.String)">
+            <summary>
+                Instantiates new specification with version 1.0.0.
+            </summary>
+            <param name="name">Name of the repository.</param>
+            <param name="storagePath">Path of the storage</param>
+        </member>
+        <member name="P:Berdiev.Storage.Xml.RepositorySpecification.Version">
+            <summary>
+                Version of the repository.
+            </summary>
+        </member>
+        <member name="P:Berdiev.Storage.Xml.RepositorySpecification.Name">
+            <summary>
+                Name of the repository.
+            </summary>
+        </member>
+        <member name="P:Berdiev.Storage.Xml.RepositorySpecification.StoragePath">
+            <summary>
+                Path of the storage.
+            </summary>
+        </member>
+        <member name="T:Berdiev.Storage.Xml.StorageXmlException">
+            <summary>
+                Represents xml storage errors.
+            </summary>
+        </member>
+        <member name="M:Berdiev.Storage.Xml.StorageXmlException.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="M:Berdiev.Storage.Xml.StorageXmlException.#ctor(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Berdiev.Storage.Xml.StorageXmlException.#ctor(System.String,System.Exception)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

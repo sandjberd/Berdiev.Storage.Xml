@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Copyright>Sandjar Berdiev</Copyright>
+    <NeutralLanguage>en-AT</NeutralLanguage>
+    <Authors>Sandjar Berdiev</Authors>
+    <Product>Berdiev.Storage.Xml</Product>
+    <Version>1.0.0-alpha.2</Version>
+    <PackageReleaseNotes>Initial version</PackageReleaseNotes>
+    <Configurations>Debug;Release;Test</Configurations>
+    <CodeAnalysisRuleSet>../../DefaultRuleSet.ruleset</CodeAnalysisRuleSet>
+    <Description>This package is used to store data in XML files. It is possible to serialize/deserialize instances.</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <NoWarn />
+    <DocumentationFile>D:\Development\.Net\Berdiev\Berdiev.Storage.Xml\Berdiev.Storage.Xml.xml</DocumentationFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <OutputPath>D:\Development\.Net\Berdiev\Berdiev.Storage.Xml\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>$(AssemblyName).Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Compile Include="IAttribute.cs" />
+    <Compile Include="Internal\Deserializer\DateTimeDeserializer.cs" />
+    <Compile Include="Internal\Deserializer\DictionaryDeserializer.cs" />
+    <Compile Include="Internal\Deserializer\EnumerableDeserializer.cs" />
+    <Compile Include="Internal\Deserializer\GuidDeserializer.cs" />
+    <Compile Include="Internal\Deserializer\IRecordDeserializer.cs" />
+    <Compile Include="Internal\Deserializer\PrimitiveDeserializer.cs" />
+    <Compile Include="Internal\Deserializer\RecordDeserializerBase.cs" />
+    <Compile Include="Internal\Deserializer\RecordDeserializerService.cs" />
+    <Compile Include="Internal\Deserializer\RecordSerializableDeserializer.cs" />
+    <Compile Include="Internal\Deserializer\TImeSpanDeserializer.cs" />
+    <Compile Include="Internal\Deserializer\VersionDeserializer.cs" />
+    <Compile Include="Internal\InternalRecord.cs" />
+    <Compile Include="Internal\IVisitor.cs" />
+    <Compile Include="Internal\RecordAttribute.cs" />
+    <Compile Include="Internal\RecordExtensions.cs" />
+    <Compile Include="Internal\Repository.cs" />
+    <Compile Include="Internal\Serializer\DateTimeSerializer.cs" />
+    <Compile Include="Internal\Serializer\DictionarySerializer.cs" />
+    <Compile Include="Internal\Serializer\EnumerableSerializer.cs" />
+    <Compile Include="Internal\Serializer\GuidSerializer.cs" />
+    <Compile Include="Internal\Serializer\IRecordSerializer.cs" />
+    <Compile Include="Internal\Serializer\PrimitiveSerializer.cs" />
+    <Compile Include="Internal\Serializer\RecordSerializableSerializer.cs" />
+    <Compile Include="Internal\Serializer\RecordSerializerBase.cs" />
+    <Compile Include="Internal\Serializer\SerializerService.cs" />
+    <Compile Include="Internal\Serializer\TimeSpanSerializer.cs" />
+    <Compile Include="Internal\Serializer\VersionSerializer.cs" />
+    <Compile Include="Internal\StructuredRecordWriterVisitor.cs" />
+    <Compile Include="IRecord.cs" />
+    <Compile Include="IRecordSerializable.cs" />
+    <Compile Include="IRecord´1.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="Record.cs" />
+    <Compile Include="Record´1.cs" />
+    <Compile Include="RepositoryFactory.cs" />
+    <Compile Include="RepositorySpecification.cs" />
+    <Compile Include="StorageXmlException.cs" />
+  </ItemGroup>
+
+
+
+</Project>
